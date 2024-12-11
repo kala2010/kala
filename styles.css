@@ -1,0 +1,70 @@
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+  color: #333;
+}
+
+h1, h2, h3, h4 {
+  margin: 20px 0;
+  color: #444;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.row-buttons, .month-buttons, .days-buttons, .names-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #ff6b6b, #f0c27b);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #f0c27b, #ff6b6b);
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.student {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.save-btn {
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+}
+
+.save-btn:hover {
+  background: linear-gradient(45deg, #2575fc, #6a11cb);
+}
+
+.back-btn {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+}
+
+.back-btn:hover {
+  background: linear-gradient(45deg, #fad0c4, #ff9a9e);
+}

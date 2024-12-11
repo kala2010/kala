@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قوتابخانةى قةلاى ئيواران</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- الشاشة الرئيسية: الصفوف -->
+  <div id="main-screen">
+    <h1>قوتابخانةى قةلاى ئيواران</h1>
+    <div class="row-buttons">
+      <button onclick="openMonthsScreen('7A')">7A</button>
+      <button onclick="openMonthsScreen('7B')">7B</button>
+      <button onclick="openMonthsScreen('8A')">8A</button>
+      <button onclick="openMonthsScreen('8B')">8B</button>
+      <button onclick="openMonthsScreen('9A')">9A</button>
+      <button onclick="openMonthsScreen('9B')">9B</button>
+      <button onclick="openMonthsScreen('9C')">9C</button>
+      <button onclick="openMonthsScreen('9G')">9G</button>
+    </div>
+  </div>
+
+  <!-- شاشة الأشهر -->
+  <div id="months-screen" style="display: none;">
+    <h2 id="selected-class">الصف:</h2>
+    <div class="month-buttons">
+      <script>
+        const months = [
+          "شهر 9", "شهر 10", "شهر 11", "شهر 12", "شهر 1",
+          "شهر 2", "شهر 3", "شهر 4", "شهر 5", "شهر 6"
+        ];
+        months.forEach(month => {
+          document.write(`<button onclick="openDaysScreen('${month}')">${month}</button>`);
+        });
+      </script>
+    </div>
+    <button class="back-btn" onclick="goBackToMain()">رجوع</button>
+  </div>
+
+  <!-- شاشة الأيام -->
+  <div id="days-screen" style="display: none;">
+    <h3 id="selected-month">الشهر:</h3>
+    <div class="days-buttons">
+      <script>
+        for (let i = 1; i <= 31; i++) {
+          document.write(`<button onclick="openNamesScreen(${i})">يوم ${i}</button>`);
+        }
+      </script>
+    </div>
+    <button class="back-btn" onclick="goBackToMonths()">رجوع</button>
+  </div>
+
+  <!-- شاشة الأسماء -->
+  <div id="names-screen" style="display: none;">
+    <h4 id="selected-day">اليوم:</h4>
+    <div class="names-list">
+      <script>
+        for (let i = 1; i <= 40; i++) {
+          document.write(`
+            <div class="student">
+              <input type="text" placeholder="اسم الطالب ${i}" id="student-${i}">
+              <button onclick="setAttendance(${i}, 'حضور')">حضور</button>
+              <button onclick="setAttendance(${i}, 'غياب')">غياب</button>
+              <button onclick="setAttendance(${i}, 'إجازة')">إجازة</button>
+            </div>
+          `);
+        }
+      </script>
+    </div>
+    <button class="save-btn" onclick="saveToExcel()">حفظ إلى Excel</button>
+    <button class="back-btn" onclick="goBackToDays()">رجوع</button>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</body>
+</html>
